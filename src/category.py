@@ -11,6 +11,23 @@ class Category:
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
-        self.products = products
+        self.__products = products
         Category.category_count += 1
         Category.product_count = Product.product_count
+
+
+    def add_product(self, product):
+        self.__products.append(product)
+        self.product_count += 1
+
+    @property
+    def products(self):
+        return self.__products
+
+    @products.getter
+    def products(self):
+        result = []
+        for i in self.__products:
+            result.append(f"{i.name}, {i.price} руб. Остаток: {i.quantity} шт.")
+        return "\n".join(result)
+

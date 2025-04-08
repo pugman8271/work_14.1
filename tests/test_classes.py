@@ -12,3 +12,5 @@ def test_init_category_counter(category_smart):
 
 def test_init_product_counter(product_samsung):
     assert product_samsung.product_count == 1
+
+
