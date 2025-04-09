@@ -17,8 +17,11 @@ class Category:
 
 
     def add_product(self, product):
-        self.__products.append(product)
-        self.product_count += 1
+        if isinstance(product, Product):
+            pass
+        else:
+            self.__products.append(product)
+            Category.product_count += 1
 
     @property
     def products(self):
