@@ -21,7 +21,6 @@ class Category:
             prod_sum += product.quantity
         return f"{self.name}, количество продуктов: {prod_sum} шт."
 
-
     def add_product(self, product):
         if isinstance(product, Product):
             self.__products.append(product)
@@ -37,4 +36,3 @@ class Category:
         for i in self.__products:
             result.append(f"{i.name}, {i.price} руб. Остаток: {i.quantity} шт.")
         return "\n".join(result)
-

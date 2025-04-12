@@ -21,12 +21,11 @@ def product_samsung():
         "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5
     )
 
+
 @pytest.fixture
 def product_iphone():
     Product.product_count = 0
-    return Product(
-        "Iphone 16", "256GB, Черный цвет", 80000.0, 3
-    )
+    return Product("Iphone 16", "256GB, Черный цвет", 80000.0, 3)
 
 
 @pytest.fixture
