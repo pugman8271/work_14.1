@@ -1,3 +1,5 @@
+from itertools import product
+
 from src.category import Category
 from src.product import Product
 
@@ -42,5 +44,23 @@ def test_getter(product_samsung):
     assert category.products == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
 
 
+def test_str_method(product_samsung):
+
+    assert str(product_samsung) == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
+
+
+def test_add_method(product_samsung, product_iphone):
+    result = product_samsung + product_iphone
+    expected = (180000.0 * 5) + (80000 * 3)
+    assert result == expected
+
+
+def test_category_str():
+    category_test = Category('Смартфоны', "Смартфоны, как средство не только коммуникации, "
+                                          "но и получения дополнительных функций для удобства жизни", [])
+    product_test = Product('Samsung Galaxy S23 Ultra', '256GB, Черный цвет', 180000.0, 10)
+    category_test.add_product(product_test)
+    expected_output = "Смартфоны, количество продуктов: 10 шт."
+    assert str(category_test) == expected_output
 
 
