@@ -15,11 +15,14 @@ class Category:
         Category.category_count += 1
         Category.product_count = Product.product_count
 
+    def __str__(self):
+        prod_sum = 0
+        for product in self.__products:
+            prod_sum += product.quantity
+        return f"{self.name}, количество продуктов: {prod_sum} шт."
 
     def add_product(self, product):
         if isinstance(product, Product):
-            pass
-        else:
             self.__products.append(product)
             Category.product_count += 1
 
@@ -33,4 +36,3 @@ class Category:
         for i in self.__products:
             result.append(f"{i.name}, {i.price} руб. Остаток: {i.quantity} шт.")
         return "\n".join(result)
-

@@ -23,6 +23,12 @@ def product_samsung():
 
 
 @pytest.fixture
+def product_iphone():
+    Product.product_count = 0
+    return Product("Iphone 16", "256GB, Черный цвет", 80000.0, 3)
+
+
+@pytest.fixture
 def product_samsung_new():
     return {
         "name": "Samsung Galaxy S23 Ultra",
