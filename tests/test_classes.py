@@ -1,5 +1,7 @@
 from src.category import Category
 from src.product import Product
+from src.smartphone import Smartphone
+from src.lawngrass import LawnGrass
 
 
 def test_init_category(category_smart):
@@ -73,3 +75,35 @@ def test_category_str():
     category_test.add_product(product_test)
     expected_output = "Смартфоны, количество продуктов: 10 шт."
     assert str(category_test) == expected_output
+
+
+def test_smartphone_init(smartphone_iphone):
+    assert smartphone_iphone.name == "Iphone 15"
+    assert smartphone_iphone.description == "512GB, Gray space"
+    assert smartphone_iphone.price == 210000
+    assert smartphone_iphone.quantity == 8
+    assert smartphone_iphone.efficiency == 98.2
+    assert smartphone_iphone.model == "15"
+    assert smartphone_iphone.memory == 512
+    assert smartphone_iphone.color == "Gray space"
+
+def test_lawn_grass_init(lawn_grass):
+    assert lawn_grass.name == "Газонная трава"
+    assert lawn_grass.description == "Элитная трава для газона"
+    assert lawn_grass.price == 500
+    assert lawn_grass.quantity == 20
+    assert lawn_grass.country == "Россия"
+    assert lawn_grass.germination_period == '7 дней'
+    assert lawn_grass.color == "Зеленый"
+
+def test_smartphone_add(smartphone_iphone):
+    another_phone = Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5,
+                         "S23 Ultra", 256, "Серый")
+    total_price = smartphone_iphone + another_phone
+    assert total_price == (smartphone_iphone.price * smartphone_iphone.quantity) + (another_phone.price * another_phone.quantity)
+
+
+def test_lawn_grass_add(lawn_grass):
+    another_grass = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
+    total_price = lawn_grass + another_grass
+    assert total_price == (lawn_grass.price * lawn_grass.quantity) + (another_grass.price * another_grass.quantity)
