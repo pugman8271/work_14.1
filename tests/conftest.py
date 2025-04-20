@@ -1,9 +1,10 @@
 import pytest
 
 from src.category import Category
+from src.lawngrass import LawnGrass
 from src.product import Product
 from src.smartphone import Smartphone
-from src.lawngrass import LawnGrass
+
 
 @pytest.fixture
 def category_smart():
@@ -37,9 +38,12 @@ def product_samsung_new():
         "price": 180000.0,
         "quantity": 5,
     }
+
+
 @pytest.fixture
 def smartphone_iphone():
     return Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2, "15", 512, "Gray space")
+
 
 @pytest.fixture
 def lawn_grass():
@@ -49,4 +53,3 @@ def lawn_grass():
 @pytest.fixture
 def prod_mixin_test():
     return 'Product (Samsung Galaxy S23 Ultra, 256GB, Серый цвет, 200MP камера, 180000.0, 5)'
-

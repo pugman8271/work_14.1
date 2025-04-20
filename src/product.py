@@ -1,5 +1,7 @@
 from src.baseproduct import BaseProduct
 from src.poduct_mixin import MixinProduct
+
+
 class Product(BaseProduct, MixinProduct):
     name: str
     description: str
@@ -14,8 +16,6 @@ class Product(BaseProduct, MixinProduct):
         self.quantity = quantity
         Product.product_count += 1
         super().__init__()
-
-
 
     def __str__(self):
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
