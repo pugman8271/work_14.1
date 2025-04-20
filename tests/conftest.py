@@ -2,7 +2,8 @@ import pytest
 
 from src.category import Category
 from src.product import Product
-
+from src.smartphone import Smartphone
+from src.lawngrass import LawnGrass
 
 @pytest.fixture
 def category_smart():
@@ -36,3 +37,12 @@ def product_samsung_new():
         "price": 180000.0,
         "quantity": 5,
     }
+@pytest.fixture
+def smartphone_iphone():
+    return Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2, "15", 512, "Gray space")
+
+@pytest.fixture
+def lawn_grass():
+    return LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
+
+
