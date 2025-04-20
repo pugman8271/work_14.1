@@ -2,6 +2,7 @@ from src.category import Category
 from src.product import Product
 from src.smartphone import Smartphone
 from src.lawngrass import LawnGrass
+from src.baseproduct import BaseProduct
 
 
 def test_init_category(category_smart):
@@ -107,3 +108,9 @@ def test_lawn_grass_add(lawn_grass):
     another_grass = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
     total_price = lawn_grass + another_grass
     assert total_price == (lawn_grass.price * lawn_grass.quantity) + (another_grass.price * another_grass.quantity)
+
+
+def test_mixin_test(prod_mixin_test):
+    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    assert repr(product1) == prod_mixin_test
+

@@ -46,3 +46,7 @@ def lawn_grass():
     return LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
 
 
+@pytest.fixture
+def prod_mixin_test():
+    return 'Product (Samsung Galaxy S23 Ultra, 256GB, Серый цвет, 200MP камера, 180000.0, 5)'
+
