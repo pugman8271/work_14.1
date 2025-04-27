@@ -1,3 +1,5 @@
+from itertools import product
+
 from src.product import Product
 
 
@@ -26,6 +28,17 @@ class Category:
             raise TypeError("Объект не является продуктом")
         self.__products.append(product)
         Category.product_count += 1
+
+    def middle_price(self):
+        try:
+            price_sum = 0
+            for product in self.__products:
+                price_sum += product.price
+            return  price_sum/len(self.__products)
+        except ZeroDivisionError:
+            return 0
+
+
 
     @property
     def products(self):

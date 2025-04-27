@@ -1,3 +1,8 @@
+from itertools import product
+
+import pytest
+from unicodedata import category
+
 from src.category import Category
 from src.lawngrass import LawnGrass
 from src.product import Product
@@ -117,3 +122,11 @@ def test_lawn_grass_add(lawn_grass):
 def test_mixin_test(prod_mixin_test):
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     assert repr(product1) == prod_mixin_test
+
+def test_product_zero_exception():
+    with pytest.raises(ValueError):
+        Product("Iphone 16", "256GB, Черный цвет", 80000.0, 0)
+
+def test_zero_product_in_category_exception():
+    category1 = Category("Смартфоны","Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",[])
+    assert category1.middle_price() == 0
